@@ -1,19 +1,19 @@
 // index.js
 
-const { nextISSTimesForMyLocation } = require('./iss');
+const { nextISSTimesForMyLocation } = require("./iss");
 
-/** 
- * Input: 
+/**
+ * Input:
  *   Array of data objects defining the next fly-overs of the ISS.
  *   [ { risetime: <number>, duration: <number> }, ... ]
- * Returns: 
+ * Returns:
  *   undefined
- * Sideffect: 
+ * Sideffect:
  *   Console log messages to make that data more human readable.
  *   Example output:
  *   Next pass at Mon Jun 10 2019 20:11:44 GMT-0700 (Pacific Daylight Time) for 468 seconds!
  */
-const printPassTimes = function(passTimes) {
+const printPassTimes = function (passTimes) {
   for (const pass of passTimes) {
     const datetime = new Date(0);
     datetime.setUTCSeconds(pass.risetime);
@@ -29,4 +29,4 @@ nextISSTimesForMyLocation((error, passTimes) => {
   // success, print out the deets!
   printPassTimes(passTimes);
 });
-
+//console.log(nextISSTimesForMyLocation);
